@@ -1,0 +1,20 @@
+---
+  - name: Add Ubuntu GIS repo
+    apt_repository: repo='ppa:ubuntugis/ppa' state=present
+    become: yes
+    become_method: sudo
+
+  - name: Add Mapnik repo
+    apt_repository: repo='ppa:mapnik/v2.2.0' state=present
+    become: yes
+    become_method: sudo
+
+  - name: Install mapnik
+    apt: pkg={{ item }} state=latest
+    become: yes
+    become_method: sudo
+    with_items:
+      - libmapnik
+      - libmapnik-dev
+      - mapnik-utils
+      - python-mapnik

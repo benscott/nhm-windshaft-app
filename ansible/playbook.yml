@@ -1,0 +1,7 @@
+---
+  - hosts: mapserver
+    roles:
+      - core
+      - mapnik
+      - node
+      - redis

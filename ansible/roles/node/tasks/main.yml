@@ -1,0 +1,12 @@
+---
+  - name: Add Node 0.x Repository
+    apt_repository: repo='ppa:chris-lea/node.js'
+    become: yes
+    become_method: sudo
+
+  - name: Install Node
+    apt: pkg={{ item }} state=present update_cache=yes
+    become: yes
+    become_method: sudo
+    with_items:
+      - nodejs=0.10.37-1chl1~precise1

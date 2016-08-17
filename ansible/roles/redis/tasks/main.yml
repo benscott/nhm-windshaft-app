@@ -1,0 +1,9 @@
+---
+  - name: Install Redis
+    apt: pkg={{ item }} state=latest
+    become: yes
+    become_method: sudo
+    with_items:
+      - redis-server
+
+# TODO: Lockdown redis to 127.0.0.1
